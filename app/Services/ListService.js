@@ -9,6 +9,12 @@ class ListService {
   constructor() {
     console.log("List Service");
   }
+
+  create(rawList) {
+    let lists = ProxyState.lists
+    lists.push(new List(rawList))
+    ProxyState.lists = lists
+  }
   //TODO  Here is where we handle all of our business logic,
   //given the information you need in the controller,
   //what methods will you need to do when this class is first 'constructed'?

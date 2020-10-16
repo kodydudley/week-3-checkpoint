@@ -22,5 +22,18 @@ export default class ListController {
     _drawLists();
   }
 
-  //TODO: Your app will need the ability to create, and delete lists
+  create(e) {
+    e.preventDefault()
+
+    let form = e.target
+
+    let rawList = {
+      title: form.title.value
+    }
+    listService.create(rawList)
+
+    form.reset()
+
+    //TODO: Your app will need the ability to create, and delete lists
+  }
 }
