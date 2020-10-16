@@ -28,7 +28,7 @@ export default class ListController {
     let form = e.target
 
     let rawList = {
-      title: form.title.value
+      title: form.title.value,
     }
     listService.create(rawList)
 

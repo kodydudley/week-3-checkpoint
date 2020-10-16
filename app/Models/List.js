@@ -14,16 +14,16 @@ export default class List {
 
   get Template() {
     return /*html*/ `
-  <div class="card col-5 mt-3 text-center border bg-light rounded shadow-lg">
-    <h3>${this.title} <button class="text-danger close mt-3" onclick="app.listController.delete('${this.id}')"><span>&times;</span></button></h3>
-      <form onsubmit="app.taskController.create(event, '${this.id}')">
-          <div class="form-group">
-             <input type="text" name="taskTitle" class="form-control" placeholder="Enter task item here">
-             <button type="submit" name="" id="" class="btn btn-primary btn-lg mt-1">Add Task</button>
-          </div>
-      </form>
+    <div class="card col-5 mt-5 pt-3 text-center border bg-light rounded shadow-lg">
+    <h3>${this.title} <button class="text-danger close mt-3" onclick="window.confirm('Are you sure you want to delete this entire list?'), app.listController.delete('${this.id}')"><span>&times;</span></button></h3>
+    <form onsubmit="app.taskController.create(event, '${this.id}')">
+    <div class="form-group">
+    <input type="text" name="taskTitle" class="form-control" placeholder="Enter task item here">
+    <button type="submit" name="" id="" class="btn btn-primary btn-lg mt-1">Add Task</button>
+    </div>
+    </form>
     <h4>Tasks:</h4>
-    <div class="row text-left">
+    <div class="row text-left pb-3">
     ${this.Task}
     </div>
   </div>

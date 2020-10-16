@@ -2,12 +2,15 @@ import List from "../Models/List.js";
 import {
   ProxyState
 } from "../AppState.js"
+import {
+  saveState
+} from "../Utils/LocalStorage.js"
 
 //Public
 class ListService {
 
   constructor() {
-    console.log("List Service");
+    ProxyState.on("lists", saveState)
   }
 
   create(rawList) {
