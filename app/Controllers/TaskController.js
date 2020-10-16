@@ -15,7 +15,6 @@ export default class TaskController {
     e.preventDefault()
 
     let form = e.target
-
     let rawTask = {
       title: form.taskTitle.value,
       listId: listId
@@ -23,5 +22,9 @@ export default class TaskController {
     taskService.create(rawTask)
 
     form.reset()
+  }
+
+  delete(id) {
+    taskService.delete(id)
   }
 }

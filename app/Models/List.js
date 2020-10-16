@@ -22,8 +22,8 @@ export default class List {
              <button type="submit" name="" id="" class="btn btn-primary btn-lg mt-1">Add Task</button>
           </div>
       </form>
-    <h5>Tasks:</h5>
-    <div class="row">
+    <h4>Tasks:</h4>
+    <div class="row text-left">
     ${this.Task}
     </div>
   </div>
