@@ -22,7 +22,7 @@ export default class ListController {
     _drawLists();
   }
 
-  create(e) {
+  create(e, ) {
     e.preventDefault()
 
     let form = e.target

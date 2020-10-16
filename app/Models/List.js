@@ -14,19 +14,27 @@ export default class List {
 
   get Template() {
     return /*html*/ `
-    <div class="col-3 border bg-light rounded shadow-lg">
-    <h1>${this.title} <button class="text-danger close mt-3" onclick="app.listController.delete('${this.id}')"><span>&times;</span></button></h1>
-    <form onsubmit="app.taskController.create(event, '${this.id}')">
-            <div class="form-group">
-                <input type="text" name="taskTitle" class="form-control" placeholder="Enter task item here">
-                <button type="submit" name="" id="" class="btn btn-primary btn-lg">Add Task</button>
-            </div>
-    </form>
-    <h3>Tasks:</h3>
+  <div class="card col-5 mt-3 text-center border bg-light rounded shadow-lg">
+    <h3>${this.title} <button class="text-danger close mt-3" onclick="app.listController.delete('${this.id}')"><span>&times;</span></button></h3>
+      <form onsubmit="app.taskController.create(event, '${this.id}')">
+          <div class="form-group">
+             <input type="text" name="taskTitle" class="form-control" placeholder="Enter task item here">
+             <button type="submit" name="" id="" class="btn btn-primary btn-lg mt-1">Add Task</button>
+          </div>
+      </form>
+    <h5>Tasks:</h5>
     <div class="row">
+    ${this.Task}
     </div>
-</div>
+  </div>
     `
+  }
+
+  get Task() {
+    let template = ""
+    let tasks = ProxyState.tasks.filter(t => t.listId == this.id)
+    tasks.forEach(t => template += t.Template)
+    return template
   }
   //Be sure to add the methods needed to create the view template for this model
   //For starting out, your tasks may be strings alone, but later you may wish to turn them into full objects, that will be up to you
