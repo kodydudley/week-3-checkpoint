@@ -23,8 +23,10 @@ export default class TaskController {
 
     form.reset()
   }
-
   delete(id) {
-    taskService.delete(id)
+    let confirmed = window.confirm('Are you sure you want to delete this task?')
+    if (confirmed) {
+      taskService.delete(id)
+    }
   }
 }

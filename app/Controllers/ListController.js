@@ -38,6 +38,9 @@ export default class ListController {
   }
 
   delete(id) {
-    listService.delete(id)
+    let confirmed = window.confirm('Are you sure you want to delete this entire list?')
+    if (confirmed) {
+      listService.delete(id)
+    }
   }
 }

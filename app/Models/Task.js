@@ -17,7 +17,7 @@ export default class Task {
 
     return /*html*/ `
     <div class="col-12">
-<h5>${this.title} <button class="close text-danger float-right" onclick="window.confirm('Are you sure you want to delet this task?'), app.taskController.delete('${this.id}')"><span>&times;</span></button></h5>
+<h5>${this.title} <button class="close text-danger float-right" onclick="app.taskController.delete('${this.id}')"><span>&times;</span></button></h5>
     </div>
     `
   }
